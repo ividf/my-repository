@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Russo+One&display=swap');
+.animacion{
+    animation:tamaño 1s
+
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.contenedor{
+    height: 30rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,7rem);
+    grid-template-areas: 
+    "a a"
+    "b c"
+    "d e";
+    align-content: center;
+    margin-bottom: 5rem;
+    padding: 5rem;
+}
+
+#puntos{
+    font-family: "Righteous", cursive;
+    font-size: 5rem;
+    font-weight: bold;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    margin-top: 9rem;
+    color: #fff;
+	text-shadow:
+		0 0 5px rgb(225, 0, 255),
+		0 0 10px rgba(255,0,255,1),
+		0 0 20px rgba(255,0,255,1),
+		0 0 40px rgb(180, 27, 180),
+		0 0 80px rgba(180,27,180,1),
+		0 0 90px rgba(180,27,180,1),
+		0 0 100px rgba(180,27,180,1),
+		0 0 140px rgba(180,27,180,1),
+		0 0 180px rgba(180,27,180,1);
+}
+
+span{
+    margin-left: 7rem;
+}
+
+.contenedor *{
+    border-radius: 20px;
+    font-family: "Russo One", sans-serif;
+}
+
+#pregunta{
+    color: black;
+    text-shadow:
+    0 0 5px rgba(0,178,255,1),
+    0 0 10px rgba(0,178,255,1),
+    0 0 20px rgba(0,178,255,1),
+    0 0 40px rgba(38,104,127,1),
+    0 0 80px rgba(38,104,127,1),
+    0 0 90px rgba(38,104,127,1),
+    0 0 100px rgba(38,104,127,1),
+    0 0 140px rgba(38,104,127,1),
+    0 0 180px rgba(38,104,127,1);
+    font-size: 2rem ;
+    grid-area: a;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8rem;
+}
+
+.boton{
+    font-size: 2rem;
+    text-align: center;
+    background-color: rgba(0, 204, 255, 0.116);
+    color: black;
+    border-color: #fff;
+    
+}
+
+.boton:hover {
+    box-shadow: 20px 20px 20px rgb(22, 125, 193), 0 0 10px 4px rgb(22, 125, 193) ;
+    text-shadow:
+    0 0 5px rgba(0,178,255,1),
+    0 0 10px rgba(0,178,255,1),
+    0 0 20px rgba(0,178,255,1),
+    0 0 40px rgba(38,104,127,1),
+    0 0 80px rgba(38,104,127,1),
+    0 0 90px rgba(38,104,127,1),
+    0 0 100px rgba(38,104,127,1),
+    0 0 140px rgba(38,104,127,1),
+    0 0 180px rgba(38,104,127,1);
+}
+
+#boton1{
+    grid-area:b;
+}
+
+#boton2{
+    grid-area: c;
+}
+
+#boton3{
+    grid-area: d;
+}
+
+#boton4{
+    grid-area: e;
+}
+
+footer{
+    color: rgba(255, 255, 255, 0.812);
+    width:1fr;
+    
+   
+    background: border-box black;
+    display: flex;
+}
+
+#pfooter1, #pfooter2{
+    width: 50%;
+    display: flex;
+}
+
+#pfooter1{
+    justify-content: left;
+    margin-left: 5rem;
+}
+
+#pfooter2{
+    justify-content: right;
+    margin-right: 5rem;
+}
+
+main{
+    background-image: url(fondo.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+@keyframes tamaño{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+    100%{transform: scale(1);
+    }
+    }
+
+
+/* RESPONSIVE */
+
+
+@media (max-width: 600px){
+    #puntos{
+        font-size: 3rem;
+    }
+    span{
+        margin-left: 2rem;
+    }
+    #pregunta{
+        font-size: 1.5rem;
+    }
+    .boton{
+        font-size: 1.5rem;
+    }
+    .contenedor{
+        padding: 1.5rem;
+    }
+}
+
+@media (max-height: 700px){
+    .contenedor{
+        height: 30rem;}
+    span{
+        margin-left: 2rem;
+        }
+    #puntos{
+        margin-top: 3rem;
+    }
+}
+
