@@ -27,6 +27,7 @@ async function sendEmail(email) {
 }
 
 // indicamos que valores tienen que cumplirse a la hora de validar los datos que nos van a llegar
+//aqui definimos como va a ser la validacion de la funcion accountData con el metodo validate de la libreria joi o bcrypt
 async function validate(accountData) {
   const schema = Joi.object({
     name: Joi.string().max(255).required(),
@@ -41,10 +42,11 @@ async function validate(accountData) {
 
 async function createAccount(req, res) {
   // hacemos una copia del req.body por seguridad
-  const accountData = { ...req.body };
+  const accountData = { ...req.body }; //metemos los datos del body en accountData
 
   // validamos los datos recibidos y en caso de no cumplir los requisitos devolvemos un código de estado 400 debido a que es percibido como un error del cliente
   try {
+    //1º intentamos validar los datos que introducimos
     await validate(accountData);
   } catch (e) {
     return res.status(400).send({
@@ -56,14 +58,16 @@ async function createAccount(req, res) {
 
   // pedimos una conexión al pool
   try {
+    //2ºprobamos que nos de una conexion
     connection = await mysqlPool.getConnection();
 
     // transformamos las contraseñas para que no se puedan descifrar, el segundo parámetro usado es el número de vueltas, es un número que afectará al rendimiento del algoritmo bcrypt (10 vueltas es un buen balance entre seguridad/velocidad de cálculo)
-    const securePassword = await bcrypt.hash(accountData.password, 10);
+    const securePassword = await bcrypt.hash(accountData.password, 10); //convertimos los datos sacados del body en account data en encriptado y aqui debajo le vamos a decir donde se van a meter los datos del body
 
     // indicamos los datos para insertar en mysql
     const now = new Date();
     const user = {
+      //metemos en esta variable los datos que introducimos en el body
       name: accountData.name,
       nick: accountData.nick,
       about_me: accountData.about_me,
