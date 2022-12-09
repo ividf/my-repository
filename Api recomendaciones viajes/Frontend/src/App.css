@@ -76,10 +76,14 @@ li {
 }
 
 .letraNav {
+  display: flex;
   color: rgb(0, 0, 0);
   background-color: #47454456;
   border-radius: 8px;
   text-decoration: underline;
+  width: 16rem;
+  align-items: center;
+  justify-content: center;
 }
 
 img {
