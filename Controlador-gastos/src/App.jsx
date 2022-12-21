@@ -71,7 +71,7 @@ function App() {
     if (gasto.id) {
       //acrtualizamos
       const gastosActualizados = gastos.map((gastoState) =>
-        gastoState.id === gasto.id ? gasto : gastoSatte
+        gastoState.id === gasto.id ? gasto : gastoState
       ); //si el id coincide con un gasto , lo modifica
       setGastos(gastosActualizados);
     } else {
