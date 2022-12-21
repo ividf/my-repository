@@ -78,7 +78,7 @@ const Modal = ({
             onChange={(e) => setCantidad(Number(e.target.value))}
           ></input>
           <div className="campo">
-            <label htmlFor="categoria">CAtegoria</label>
+            <label htmlFor="categoria">Categoria</label>
             <select
               id="categoria"
               value={categoria}
